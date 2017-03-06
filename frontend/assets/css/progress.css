@@ -1,0 +1,298 @@
+.section {
+  padding: .5em;
+  margin: 0;
+  background: white;
+  /*&:before {
+  	content: "";
+  	width: 100%;
+  	background: lighten($blue, 5%);
+  	height: 170px;
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	z-index: -1;
+  	border-bottom: 1px solid rgba(0,0,0,.2);
+  }*/ }
+
+.form-instructions {
+  text-align: center; }
+
+form {
+  margin: 2rem auto;
+  width: 100%;
+  will-change: transform; }
+
+.fieldgroup {
+  margin: 1.5rem 0;
+  position: relative; }
+
+/*
+label {
+	position: absolute;
+	top: .8rem;	
+	left: 0;
+	display: block;
+	font-size: 1rem;
+	transition: $page-animDuration ease-out;	
+	opacity: .5;
+	will-change: top, font-size;
+	
+	&:hover {
+		cursor: text;
+	}	
+}
+
+input {
+	border: 1px solid #fff;
+	font-size: 1.2rem;
+	padding: .6rem;
+	padding-left: 0;
+	background:transparent;
+	border: none;
+	border-bottom: 2px solid #444;
+	transition: $page-animDuration;
+	width: calc(100% - .6rem);
+	max-width: 350px;
+	border-radius: 0;
+	
+	&:focus {
+		outline: none;
+	}
+	
+	&:valid {
+		border-color: #444;
+	}
+	
+	&:focus + label,
+	&.hasInput + label {
+		top: -.8rem;
+		font-size: .7rem;
+	}
+}
+*/
+/*
+.btn {
+	color: #fff;
+	background-color: $blue;
+	padding: .8rem;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	border-radius: 5px;
+	border: 2px solid transparent;
+	min-width: 45px !important;
+
+	&:hover,
+	&.hover {
+		color: #fff;
+		background-color: $blue + 20;
+		text-shadow: 0 1px 3px rgba(0,0,0,.3);
+		transition: .2s;
+	}
+
+	&:active,
+	&.active {
+		color: #fff;
+		background-color: $blue - 20;
+		box-shadow: inset 0 2px 10px rgba(0,0,0,.3);
+		outline: 2px solid $blue;
+	}
+
+	&:focus,
+	&.focus {
+		color: #fff;
+		outline: 2px solid $blue;
+		outline-offset: 2px;
+	}
+
+	&:active:focus,
+	&.active.focus {
+		outline: 4px solid $blue;
+	}
+
+	//Reset outlines on button with frozen states
+	&.hover,
+	&.active { outline: none; }
+}
+
+//Alternate action
+.btn-alt {
+	background-color: transparent;
+	color: $blue;
+	border: 2px solid $blue;
+
+	&:hover,
+	&.hover {
+		background-color: transparent;
+		color: $blue - 40;
+		border-color: $blue - 40;
+		text-shadow: none;
+	}
+
+	&:focus,
+	&.focus {
+		color: $blue - 20;
+	}
+
+	&:active,
+	&.active {
+		color: #fff;
+		background-color: $blue;
+		text-shadow: 0 -1px 0 rgba(255,255,255,.2);
+	}
+
+	//Reset outlines on button with frozen states
+	&.hover,
+	&.active { outline: none; }
+}
+
+.buttons { 
+	display: flex;
+	
+	.btn { margin-right: 15px; }
+}
+
+form .btn {
+	display: inline-block;
+	width: 100%;	
+	max-width: 220px;
+	margin: 4rem auto 0 auto;
+}
+
+[data-step="4"] button.btn {
+	display: block;
+	margin: 0 auto;
+}
+*/
+.form-progress {
+  position: relative;
+  display: block;
+  margin: 3rem auto;
+  width: 100%;
+  max-width: 500px; }
+
+progress {
+  display: block;
+  position: relative;
+  top: 2px;
+  left: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #03a9f4;
+  width: 100%;
+  height: 5px;
+  background: none;
+  transition: 1s;
+  will-change: contents; }
+  progress::-webkit-progress-bar {
+    background-color: #ddd; }
+  progress::-webkit-progress-value {
+    background-color: #03a9f4;
+    transition: all 0.5s ease-in-out; }
+
+.form-progress-indicator {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 3px solid #ddd;
+  border-radius: 50%;
+  transition: all .2s ease-in-out;
+  transition-delay: .3s;
+  will-change: transform; }
+  .form-progress-indicator.one {
+    left: 0; }
+  .form-progress-indicator.two {
+    left: 33%; }
+  .form-progress-indicator.three {
+    left: 66%; }
+  .form-progress-indicator.four {
+    left: 100%; }
+  .form-progress-indicator.active {
+    animation: bounce .5s forwards;
+    animation-delay: .5s;
+    border-color: #03a9f4; }
+  .form-progress-indicator span {
+    text-align: center;
+    /* margin-top: 0px; */
+    margin-left: -16px;
+    width: 60px;
+    position: absolute;
+    top: 20px;
+    left: -50%; }
+
+.flowover {
+  overflow: hidden; }
+
+.animation-container {
+  margin-top: 60px;
+  position: relative;
+  width: 100%;
+  transition: .3s;
+  will-change: padding; }
+
+.form-step {
+  transition: 1s ease-in-out;
+  transition-timing-function: ease-in-out;
+  will-change: transform, opacity; }
+
+.form-step.leaving {
+  animation: left-and-out .3s forwards; }
+
+.form-step.waiting {
+  transform: translateX(400px); }
+
+.form-step.coming {
+  animation: right-and-in .3s forwards; }
+
+@keyframes left-and-out {
+  100% {
+    opacity: 0;
+    transform: translateX(-400px); } }
+@keyframes right-and-in {
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+@keyframes bounce {
+  50% {
+    transform: scale(1.5); }
+  100% {
+    transform: scale(1); } }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.hidden {
+  display: none; }
+
+.btn-footer {
+  padding: 1em 0 0.6em 0; }
+
+.addform-submit {
+  padding: 20px 10px;
+  margin-top: 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px; }
+
+.list-detail {
+  display: none;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #bec9d3; }
+
+#detail-form-container {
+  position: absolute;
+  width: 100%;
+  display: none;
+  padding-left: 1em;
+  padding-right: 1em; }
+
+/*# sourceMappingURL=progress.css.map */

@@ -1,0 +1,89 @@
+{
+  "12345": [
+    {
+      "productName": "螺紋鋼",
+      "price": 12,
+      "unit": "公斤",
+      "netWeight": 17,
+      "roughWeight": 18,
+      "bz": "what's this?",
+      "status": "active"
+    },
+    {
+      "productName": "不鏽鋼",
+      "price": 120,
+      "unit": "公斤",
+      "netWeight": 171,
+      "roughWeight": 181,
+      "bz": "what's this?",
+      "status": "active"
+    },
+    {
+      "productName": "軋鋼",
+      "price": 122,
+      "unit": "公斤",
+      "netWeight": 172,
+      "roughWeight": 185,
+      "bz": "what's this?",
+      "status": "active"
+    }
+  ],
+  "12346": [
+    {
+      "productName": "旺仔",
+      "price": 124,
+      "unit": "公斤",
+      "netWeight": 171,
+      "roughWeight": 182,
+      "bz": "what's this?",
+      "status": "active"
+    },
+    {
+      "productName": "QQ",
+      "price": 123,
+      "unit": "公斤",
+      "netWeight": 173,
+      "roughWeight": 18,
+      "bz": "what's this?",
+      "status": "active"
+    },
+    {
+      "productName": "糖",
+      "price": 123,
+      "unit": "公斤",
+      "netWeight": 17,
+      "roughWeight": 18,
+      "bz": "what's this?",
+      "status": "active"
+    }
+  ],
+  "12347": [
+    {
+      "productName": "果",
+      "price": 12,
+      "unit": "公斤",
+      "netWeight": 17,
+      "roughWeight": 18,
+      "bz": "what's this?",
+      "status": "active"
+    },
+    {
+      "productName": "凍",
+      "price": 126,
+      "unit": "公斤",
+      "netWeight": 175,
+      "roughWeight": 18,
+      "bz": "what's this?",
+      "status": "active"
+    },
+    {
+      "productName": "廠",
+      "price": 127,
+      "unit": "公斤",
+      "netWeight": 176,
+      "roughWeight": 18,
+      "bz": "what's this?",
+      "status": "active"
+    }
+  ]
+}

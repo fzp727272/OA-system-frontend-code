@@ -1,0 +1,231 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="/assets/lib/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/moment.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/mustache.min.js"></script>
+    <script type="text/javascript" src="print.js"></script>
+    <style scoped>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            margin: 0;
+            width: 21cm;
+        }
+        
+        #title-displayId {
+            position: absolute;
+            top: 1.5cm;
+            left: 16cm;
+            width: 5cm;
+            height: 0.6cm;
+            font-size: 0.4cm;
+            text-align: center;
+        }
+        
+        #title-top {
+            position: absolute;
+            top: 0.7cm;
+            left: 0cm;
+            width: 21cm;
+            height: 1cm;
+            font-size: 0.8cm;
+            text-align: center;
+        }
+        
+        #title-left {
+            position: absolute;
+            top: 1.95cm;
+            left: 3cm;
+            width: 8cm;
+            height: 0.6cm;
+            font-size: 0.4cm;
+        }
+        
+        #title-right {
+            position: absolute;
+            top: 1.95cm;
+            left: 14cm;
+            width: 4cm;
+            height: 0.6cm;
+            font-size: 0.4cm;
+        }
+
+        .table {
+            position: absolute;
+            top: 2.7cm;
+            left: 0.65cm;
+            width: 20.14cm;
+            height: auto;
+            font-size: 0.4cm;
+            border-collapse: collapse;
+            border: 0cm;
+        }
+        
+        .table td {
+            border: 0.1cm;
+            padding: 0cm;
+        }
+        
+        .table .table-cell {
+            width: inherit;
+            height: inherit;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-align: center;
+        }
+        
+        .table .tr-height1 {
+            height: 1.41cm;
+        }
+     
+        .table .tr-height2 {
+            height: 0.76cm;
+        }
+           
+        .table .tr-height2 .table-cell {
+            line-height: 0.76cm;
+        }
+            
+        .table .tr-height3 {
+            height: 0.76cm;
+        }
+            
+        .table .tr-height3 .table-cell {
+            line-height: 0.76cm;
+        }
+        
+        .table .tr-height4 {
+            height: 0.76cm;
+        }
+            
+        .table .tr-height4 .table-cell {
+            line-height: 0.76cm;
+        }
+        
+        .table .tr-height5 {
+            height: 0.76cm;
+        }
+            
+        .table .tr-height5 .table-cell {
+            line-height: 0.76cm;
+        }
+        
+        .table .tr-height6 {
+            height: 0.76cm;
+        }
+            
+        .table .tr-height6 .table-cell {
+            line-height: 0.76cm;
+        }
+        
+        .table .tr-height7 {
+            height: 0.76cm;
+        }
+            
+        .table .tr-height7 .table-cell {
+            line-height: 0.76cm;
+        }
+        
+        .table .tr-height8 {
+            height: 1.1cm;
+        }
+            
+        .table .tr-height8 .to-sum-cell {
+            line-height: 1.1cm;
+        }
+        
+        .table #productname {
+            width: 5.33cm;
+            height: inherit;
+        }
+        
+        .table .productname {
+            width: 5.33cm;
+            height: inherit;
+        }
+        
+        .table #unit {
+            width: 1.2cm;
+            height: inherit;
+        }
+        
+        .table .unit {
+            width: 1.2cm;
+            height: inherit;
+        }
+        
+        .table #sum {
+            width: 1.92cm;
+            height: inherit;
+        }
+        
+        .table .sum {
+            width: 1.92cm;
+            height: inherit;
+        }
+        
+        .table #packagesize {
+            width: 2.11cm;
+            height: inherit;
+        }
+        
+        .table .packagesize {
+            width: 2.11cm;
+            height: inherit;
+        }
+        
+        .table #packagesum {
+            width: 1.5cm;
+            height: inherit;
+        }
+        
+        .table .packagesum {
+            width: 1.5cm;
+            height: inherit;
+        }
+        
+        .table #price {
+            width: 1.21cm;
+            height: inherit;
+        }
+        
+        .table .price {
+            width: 1.21cm;
+            height: inherit;
+        }
+        
+        .table #money {
+            width: 1.92cm;
+            height: inherit;
+        }
+        
+        .table .money {
+            width: 1.92cm;
+            height: inherit;
+        }
+        
+        .table #remarks {
+            width: 4.89cm;
+            height: inherit;
+        }
+        
+        .table .remarks {
+            width: 4.89cm;
+            height: inherit;
+        }
+        
+        .table .to-sum-cell {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

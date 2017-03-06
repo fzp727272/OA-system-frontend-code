@@ -1,0 +1,76 @@
+<div id="container">
+    <div id="select-group">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="containertitle">装车单</div>
+                <button type="button" class="btn btn-primary" name="btn-newloading">
+                    <i class="fa fa-plus"></i>新建装车单
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body" id="listcontainer"  style="">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>编号</th>
+                            <th>发货方向</th>
+                            <th>发货日期</th>
+                            <th>车辆司机</th>
+                            <th style="width:250px"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="loadingsContainer">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center" style="margin-top:20px; padding:0 15px;">
+        <div class="col-col-12">
+            <div id="pagination-bar" class="pagination-sm"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="newloading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">新建装车单</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>发货日期</label>
+                            <div class="input-append date form_datetime form-group input-group">
+                                <input name="loadingSendDate" class="form-control " size="16" type="text" value="" readonly="" style="background:#fff;height:33px">
+                                <span class="add-on input-group-addon" style="background:#fff;">
+                                         <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>车辆司机</label>
+                            <select name="loadingDriver" class="selectpicker form-control" data-live-search="true" data-size="15" data-actions-box="true"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>发货方向</label>
+                            <input name="loadingDestination" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button name="submitNewLoading" type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

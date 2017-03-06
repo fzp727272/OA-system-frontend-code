@@ -1,0 +1,86 @@
+{{#data}}
+<div id="title-displayId">{{InvoiceDisplayId}}</div>
+<div id="title-top">{{titleTop}}</div>
+<div id="title-left">{{customerName}}</div>
+<div id="title-right">{{dateCreated}}</div>
+<table class="table">
+    <thead>
+        <tr class="tr-height1">
+            <th id="productname">
+                <!--产品名称或型号-->
+            </th>
+            <th id="unit">
+                <!--单位-->
+            </th>
+            <th id="sum">
+                <!--数量-->
+            </th>
+            <th id="packagesize">
+                <!--包装规格-->
+            </th>
+            <th id="packagesum">
+                <!---->
+            </th>
+            <th id="price">
+                <!--单价-->
+            </th>
+            <th id="money">
+                <!--金额-->
+            </th>
+            <th id="remarks">
+                <!--备注-->
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#items}}
+        <tr class="tr-height{{idx}}">
+            <td class="productname">
+                <div class="table-cell">{{productName}}</div>
+            </td>
+            <td class="unit">
+                <div class="table-cell">{{productUnit}}</div>
+            </td>
+            <td class="sum">
+                <div class="table-cell">{{productNumber}}</div>
+            </td>
+            <td class="packagesize">
+                <div class="table-cell">{{productPackageSize}}</div>
+            </td>
+            <td class="packagesum">
+                <div class="table-cell">{{productPackageNumber}}</div>
+            </td>
+            <td class="price">
+                <div class="table-cell">{{productUnitPrice}}</div>
+            </td>
+            <td class="money">
+                <div class="table-cell">{{productTotal}}</div>
+            </td>
+            <td class="remarks">
+                <div class="table-cell">{{productComment}}</div>
+            </td>
+        </tr>
+        {{/items}}
+        <tr class="tr-height8">
+            <td>
+                <div class="to-sum-cell"></div>
+            </td>
+            <td>
+                <div class="to-sum-cell"></div>
+            </td>
+            <td>
+                <div class="to-sum-cell"></div>
+            </td>
+            <td colspan="2">
+                <div class="to-sum-cell"></div>
+            </td>
+            <td colspan="2">
+                <div class="to-sum-cell">{{totalSum}}</div>
+            </td>
+            <td>
+                <div class="to-sum-cell"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{{/data}}

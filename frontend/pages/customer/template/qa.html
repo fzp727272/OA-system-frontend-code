@@ -1,0 +1,28 @@
+
+
+<div class='col-lg-12 col-md-12'>
+                    {{#products}}
+    <div class='panel panel-default'>
+        <div class='panel-body'>
+            
+            <div class='row'>
+
+                <div class='col-xs-12 text-left'>
+                    <div class='huge' id="{{id}}" style='font-size:1.2em;padding-bottom:10px;'>
+                        <strong>{{name}}</strong>
+                    </div>
+                    <div style='padding:5px 0;'>
+                        <span>质检备注：</span>
+                        <span> 
+                            <a name='qaComment' data-type="text" data-pk="{{id}}" data-title="修改质检备注" data-emptytext="空" data-name="qaComment">{{qaComment}}</a>
+                        </span>
+                    </div>
+                </div>
+                       
+            </div>
+    
+        </div>
+           
+    </div>
+     {{/products}}
+</div>

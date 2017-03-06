@@ -1,0 +1,14 @@
+[
+	{
+		orderId: "1",
+		orderCreatedTime: "2016-10-4",
+		productName: "产品A",
+		unitType: "KG",
+		count: "1000",
+		wrapperType: "13ge",
+		wrapperCount: "10",
+		price: "$1000",
+		cost: "19",
+		"extraInfo": "..."
+	}
+]

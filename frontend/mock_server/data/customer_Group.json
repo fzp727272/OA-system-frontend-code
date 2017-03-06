@@ -1,0 +1,29 @@
+{
+  "3": {
+    "id": "3",
+    "name": "上海三组",
+    "idPrefix": "SH",
+    "invoiceHeader": "SHTZ",
+    "customerNumber": 9999,
+    "orderNumber": 66666,
+    "invoiceNumber": 88888
+  },
+  "2": {
+    "id": "2",
+    "name": "山东八组",
+    "idPrefix": "SD",
+    "invoiceHeader": "SDBZ",
+    "customerNumber": 666,
+    "orderNumber": 777,
+    "invoiceNumber": 888
+  },
+  "1": {
+    "id": "1",
+    "name": "吉林九组",
+    "idPrefix": "JL",
+    "invoiceHeader": "JLJZ",
+    "customerNumber": 7777,
+    "orderNumber": 8989,
+    "invoiceNumber": 4567
+  }
+}

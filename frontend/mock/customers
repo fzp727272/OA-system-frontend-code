@@ -1,0 +1,18 @@
+{
+    "success": true,
+    "timestamp": 1482751164543,
+    "content": [
+        {
+            "name": "浙江温州皮革厂",
+            "id": 2,
+            "groupId": 2,
+            "description": ""
+        },
+        {
+            "name": "大天才果冻厂",
+            "id": 1,
+            "groupId": 1,
+            "description": ""
+        }
+    ]
+}

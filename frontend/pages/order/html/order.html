@@ -1,0 +1,55 @@
+<div class="modal fade" id="newOrderWizardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">新建订单</h4>
+            </div>
+            <div class="modal-body" id="newOrderWizardBody">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="select-group">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+            <div class="containertitle">订单</div>
+            <button type="button" class="btn btn-primary" id="makeneworderbutton">
+                <i class="fa fa-plus"></i>
+                新建订单
+            </button>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 form-inline text-right">
+            <label style="margin-right: 10px">选择购货单位：</label>
+            <select id="order_customer_picker" class="selectpicker" data-actions-box="true">
+            </select>
+        </div>
+    </div>
+</div>
+<div class="panel-body" style="" id="listcontainer">
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>购货单位</th>
+                        <th>下单时间</th>
+                        <th>货品种类</th>
+                        <th>备注</th>
+                        <th style="width:250px"></th>
+                    </tr>
+                </thead>
+                <tbody id="orderList">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row text-center" style="margin-top:20px; padding:0 15px;">
+        <div class="col-col-12">
+            <div id="pagination-bar" class="pagination-sm"></div>
+        </div>
+    </div>
+</div>

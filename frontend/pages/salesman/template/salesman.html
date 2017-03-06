@@ -1,0 +1,57 @@
+<div id="salesman_page">
+    <div id="select-group" style="margin:0;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="containertitle">业务员名单</div>
+                  <button type="button" class="btn btn-primary" name="btn-newSalesman">
+                    <i class="fa fa-plus"></i>新添业务员
+            </button>
+            </div>
+          
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#salesman}}
+                <tr>
+                    <td>{{name}}</td>
+                </tr>
+                {{/salesman}}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" name="new_salesman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">新添业务员</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>姓名</label>
+                                <input name="salesman_name" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button name="submit_new_salesman" type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

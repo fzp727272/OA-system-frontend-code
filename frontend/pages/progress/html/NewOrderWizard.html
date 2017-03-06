@@ -1,0 +1,131 @@
+<style>
+.progress-container{ overflow: hidden; padding: 5% 15%; position: relative; } .progress-point{height: 25px;width: 25px;background-color: #fff;border: 4px solid #ddd; display: inline-block;} .progress-point-active{ border: 4px solid #03a9f4 !important; animation: pointerscale .5s forwards; animation-delay: .5s; } .progress-point-active+p{font-weight:bold;} .progress-line{position: absolute;width: 50%;height: 4px;background-color: #ddd;left: 25%; top: 40%;margin-top: -4px;display: inline-block; } .progress-line::-webkit-progress-bar { background: #ddd;} .progress-line::-webkit-progress-value { background: #03a9f4; transition:all .5s ; -moz-transition:all .5s ; -webkit-transition:all .5s ; -o-transition:all .5s ;} @keyframes pointerscale { 50% { transform: scale(1.5); } 100% { transform: scale(1); } }
+
+</style>
+
+
+<div>
+    <div class="progress-container">
+    <progress class="progress-line" min="0" max="100" value="0"></progress>
+        <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+            <div class="img-circle progress-point progress-point-active"></div>
+            <p>选择客户</p>
+        </div>
+
+  <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+            <div class="img-circle progress-point " ></div>
+            <p>添加产品</p>
+        </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+            <div class="img-circle progress-point"></div>
+            <p>订单备注</p>
+        </div>
+          <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+            <div class="img-circle progress-point"></div>
+            <p>预览</p>
+        </div>
+
+      <!--  <div class="col-lg-12">
+            <button type="button" class="btn btn-lg">选择客户</button>
+            <button type="button" class="btn btn-lg">添加产品</button>
+            <button type="button" class="btn btn-lg">订单备注</button>
+            <button type="button" class="btn btn-lg">预览</button>
+        </div>-->
+    </div>
+    <div id='DIV_NOW_STEP1'>
+        <div class="row">
+            <div class="col-lg-12 ">
+                <div class="form-group">
+                    <label>选择客户</label>
+                    <select id="NOW_curstomer_select" class="selectpicker form-control" data-actions-box="true">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row btn-footer" style="padding-bottom: 1em;">
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-primary continue" id="BTN_NOW_STEP1_NEXT">下一步</button>
+            </div>
+        </div>
+    </div>
+    <div id='DIV_NOW_STEP2'>
+        <div class="row">
+            <div class="col-lg-12 ">
+                <div class="table-responsive" style="max-height:500px; overflow-x: hidden; overflow-y:auto;">
+                    <table class="table  table-expandable1 " style="margin-bottom:0;">
+                        <thead>
+                            <tr>
+                                <th>产品名称或型号</th>
+                                <th>单位</th>
+                                <th>数量</th>
+                                <th>包装规格</th>
+                                <th>包装数量/桶</th>
+                                <th>交货日期</th>
+                                <th>备注</th>
+                                <th style="width:120px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <a class="addproduct" style="display:inline-block;padding:10px 15px; cursor:pointer"><i class="fa fa-plus" style="margin-right:5px;"></i>添加产品</a>
+                </div>
+            </div>
+        </div>
+        <div class="row btn-footer" style="padding-bottom: 1em;">
+            <div class="col-lg-12">
+                <button type="button" class="btn btn-default" id='BTN_NOW_STEP2_PREV'>上一步</button>
+                <button type="submit" class="btn btn-primary" id='BTN_NOW_STEP2_NEXT'>下一步</button>
+            </div>
+        </div>
+    </div>
+    <div id='DIV_NOW_STEP3'>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label>填写备注</label>
+                    <textarea id="TA_NOW_ORDER_COMMENT" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row btn-footer" style="padding-bottom: 1em;">
+            <div class="col-lg-12">
+                <button type="button" class="btn btn-default" id='BTN_NOW_STEP3_PREV'>上一步</button>
+                <button type="submit" class="btn btn-primary" id='BTN_NOW_STEP3_NEXT'>下一步</button>
+            </div>
+        </div>
+    </div>
+    <div id='DIV_NOW_STEP4'>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 ">
+                <p style="margin-left:5px;">
+                    <label>购货单位：</label><span id="SPAN_NOW_STEP4_CUSTOMER"></span>
+                </p>
+                <div class="table-responsive" style="border:1px solid #e5e5e5;overflow:hidden;">
+                    <table class="table  table-expandable1 " style="margin-bottom:0;">
+                        <thead>
+                            <tr>
+                                <th>产品名称或型号</th>
+                                <th>单位</th>
+                                <th>数量</th>
+                                <th>包装规格</th>
+                                <th>包装数量/桶</th>
+                                <th>交货日期</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top:10px;margin-left:5px;">
+                    <label for="">备注：</label><span id="SPAN_NOW_STEP4_COMMENT"></span>
+                </p>
+            </div>
+        </div>
+        <div class="buttons" style="margin-top:20px;">
+            <button type="button" class="btn btn-default" id='BTN_NOW_STEP4_PREV'>上一步</button>
+            <button type="submit" class="btn btn-primary" id='BTN_NOW_STEP4_COMPLETE'>完成</button>
+        </div>
+    </div>
+</div>

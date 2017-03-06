@@ -1,0 +1,247 @@
+<html>
+
+<head>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+              font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+            margin: 0;
+        }
+        
+        .title {
+            font-size: {{titlefontSize}}cm;
+            overflow: hidden;
+            position: relative;
+            margin-top: {{titleMargintop}}cm;
+            border-bottom: {{baseborderwidth}}px solid #333;
+        }
+        
+        .pagenumber {
+       
+            padding-right: 2cm;
+            font-size: {{pagenumberFontsize}}cm;
+            line-height:1.5cm;
+            /*这个根据样式自己调*/
+        }
+       .form-title{
+           border-right: {{baseborderwidth}}px solid;
+    margin-top: .7cm;
+            text-align: left;
+            float: left;
+            width: 60%;
+            
+        }
+        .tableheader {
+            overflow: hidden;
+            margin-top: {{tableheaderMargintop}}cm;
+            font-size: {{tableFontSize}}cm;
+                padding-left: 1.6cm;
+        }
+        
+        .colume-header {
+         padding-bottom: .2cm;
+        }
+        
+        .bianhao {}
+        
+        .fahuofangxiang {}
+        
+        .fahuoriqi {}
+        
+        .zhuangcheriqi {}
+        
+        .tablebottom {
+            overflow: hidden;
+            margin-top: {{tablebottomMargintop}}cm;
+            font-size: {{tableFontSize}}cm;
+         padding: 0 .1cm;
+        }
+        
+        .colume-bottom {
+            padding:.2cm 0 .2cm .5cm;
+             border-bottom:{{baseborderwidth}}px solid #333;
+            float: left;
+            width: 26%;
+        }
+        
+        #th1 {
+            width: {{th1width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        #th2 {
+            width: {{th2width}}cm;
+        }
+        
+        #th3 {
+            width: {{th3width}}cm;
+        }
+        
+        #th4 {
+            width: {{th4width}}cm;
+        }
+        
+        #th5 {
+            width: {{th5width}}cm;
+        }
+        
+        #th6 {
+            width: {{th6width}}cm;
+        }
+        
+        #th7 {
+            width: {{th7width}}cm;
+        }
+        
+        .td1 {
+            width: {{th1width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        .td2 {
+            width: {{th2width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        .td3 {
+            width: {{th3width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        .td4 {
+            width: {{th4width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        .td5 {
+            width: {{th5width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        .td6 {
+            width: {{th6width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        .td7 {
+            width: {{th7width}}cm;
+            height: {{trheight}}cm;
+        }
+        
+        table {
+            line-height: 1.2;
+            font-size: {{tableFontSize}}cm;
+            width:100%;
+            padding:0;
+            margin-top: {{tableMargintop}}cm;
+            border-collapse: collapse; 
+            border:{{baseborderwidth}}px solid #333;
+        }
+        
+        td {
+            border-top: 1px solid #ccc;
+            padding: 0;
+        }
+        th{  border-top: 1px solid #ccc;
+            padding: 0;}
+        
+        .table-cell {
+            width: inherit;
+            height: inherit;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-align: center;
+            line-height: 1cm;
+        }
+        
+        .container {
+            page-break-after: always;
+            width: {{tablewidth}}cm;
+            margin-left: {{marginLeft}}cm;
+
+        }
+
+        .tableheader{float: left;}
+
+.cheliangsiji{margin-right: 6%;}
+.zhuangcheren{margin-left: 6%;}
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="main_print_container">
+        {{#pages}}
+        <div class="container">
+            <div class="title">
+            <div class="form-title"> 
+             <span class="pagenumber">{{index}} <span style="color:#ccc;">/ {{totalPages}}</span></span>装车单 
+             </div>  
+             <div class="tableheader">
+                <div class="bianhao colume-header"><label for="">编号：{{displayId}}</label></div>
+                <div class="fahuofangxiang colume-header"><label for="">发货方向：{{direction}}</label></div>
+                <div class="fahuoriqi colume-header"><label for="">发货日期：{{sendDate}}</label></div>
+                <div class="zhuangcheriqi colume-header"><label for="">装车日期：</label></div>
+            </div>
+            </div>
+           <div class="table-responsive">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th id="th1">客户名称</th>
+                        <th id="th2">产品型号</th>
+                        <th id="th3">批号</th>
+                        <th id="th4">包装</th>
+                        <th id="th5">件数</th>
+                        <th id="th6">重量(kg)</th>
+                        <th id="th7">备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#items}}
+                    <tr>
+                        <td class="td1">
+                            <div class="table-cell">{{customerName}}</div>
+                        </td>
+                        <td class="td2">
+                            <div class="table-cell">{{productName}}</div>
+                        </td>
+                        <td class="td3">
+                            <div class="table-cell">{{batchNumber}}</div>
+                        </td>
+                        <td class="td4">
+                            <div class="table-cell">{{packageSize}}</div>
+                        </td>
+                        <td class="td5">
+                            <div class="table-cell">{{packageNumber}}</div>
+                        </td>
+                        <td class="td6">
+                            <div class="table-cell">{{weight}}</div>
+                        </td>
+                        <td class="td7">
+                            <div class="table-cell"></div>
+                        </td>
+                    </tr>
+                    {{/items}}
+                </tbody>
+            </table>
+            </div>
+            <div class="tablebottom">
+                <div class="cheliangsiji colume-bottom"><label for="">车辆司机： {{driverName}}</label></div>
+                <div class="fuzeren colume-bottom"><label for="">负责人：</label></div>
+                <div class="zhuangcheren colume-bottom"><label for="">装车人：</label></div>
+            </div>
+        </div>
+        {{/pages}}
+    </div>
+</body>
+
+</html>

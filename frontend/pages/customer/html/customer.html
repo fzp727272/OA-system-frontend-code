@@ -1,0 +1,93 @@
+<div name='page_customer'>
+    <style scoped>
+        .box {
+            padding: 15px;
+            border: 1px solid #ebeef2;
+        }
+        
+        .beizhu {
+            margin-top: 15px;
+        }
+        
+        .prise-colume {
+            margin-right: 10px;
+            padding-right: 10px;
+            cursor: pointer;
+        }
+        
+        .unit {
+            cursor: pointer;
+        }
+        
+        .net-weight {
+            cursor: pointer;
+        }
+        
+        .rough-weight {
+            cursor: pointer;
+        }
+        
+        .show-strike-through {
+            text-decoration: line-through;
+            color: #ccc;
+        }
+        
+        .customer-detail-item {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .customer-detail-item h5 {
+            font-weight: bold;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        /*  .product-list{float: left;padding:1em 2em 1em 0em; width:15%;}*/
+    </style>
+    <div id="select-group" style="margin:0">
+        <div class="row">
+            <div class="col-lg-4 col-sm-4">
+                <div class="containertitle">客户</div>
+            </div>
+            <div class="col-lg-8 col-sm-8 form-inline text-right">
+                <label style="margin-right: 10px">选择购货单位：</label>
+                <select id="CU_customer_select" class="selectpicker"></select>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body" id="CU_panel_body">
+    </div>
+    <div class="modal fade" name="modal_addproduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加新产品</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>产品名称</label>
+                        <input id="productname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>生产类型</label>
+                        <select name="producibleProductSelect" class="selectpicker form-control" data-live-search="true">
+                        {{#producibleProducts}}
+                            <option value="{{value}}">{{text}}</option>
+                        {{/producibleProducts}}
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label>填写生产备注</label>
+                        <textarea name="producercomment" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" id="addConfirm" onclick="CUSTOMER.addNewProduct()" class="btn btn-primary">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

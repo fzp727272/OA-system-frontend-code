@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="panel panel-default" style="overflow:hidden;">
+        <div class="panel-body" style="    margin: 0 15px;
+    border-bottom: 1px solid #cfd7de;padding:15px 0;     position: relative;">
+
+            <h4 style="display:inline-block;font-weight:bold;    padding-right: 1em;
+">{{customerName}}</h4>
+            <button type="button" class="btn btn-primary" onclick="CUSTOMER.showAddNewProductModal()">
+                <i class="fa fa-plus"></i>
+                新建产品
+            </button>
+        </div>
+
+        <div class="panel-body">
+            <p style="    padding-left: 10px;
+    font-size: 1.2em;">产品列表</p>
+            <div class="panel panel-default" style="margin-bottom:0;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>产品名称</th>
+                            <th>生产型号</th>
+                            <th>生产备注</th>
+                            <th>质检备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#products}}
+                        <tr>
+                            <td>
+                                <div class="product-list">
+                                    {{name}}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="product-list">
+                                    <span></span>
+                                    <a name='producibleProductId' data-type="select2" data-pk="{{id}}" data-title="修改生产类型" data-emptytext="空" data-name="producibleProductId">{{producibleProductName}}</a>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="product-list">
+                                    <span></span>
+                                    <a name='producerComment' data-type="text" data-pk="{{id}}" data-title="修改生产者备注" data-emptytext="空" data-name="producerComment">{{producerComment}}</a>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="product-list">
+                                    <span></span>
+                                    <span name='qaComment'>{{qaComment}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/products}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

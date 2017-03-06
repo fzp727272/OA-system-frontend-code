@@ -1,0 +1,114 @@
+<style>
+.list-group {
+    border: 0;
+}
+
+.list {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+
+}
+.list:hover{
+	background-color: #ebeef2;
+}
+
+a.list {
+    color: #555;
+    text-decoration: none;
+}
+</style>
+<div id="container">
+    <div id="select-group" style="margin:0;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="containertitle">客户簿</div>
+            </div>
+            <!--<div class="col-lg-6 form-inline text-right">
+                <label style="margin-right: 10px">选择购货单位：</label>
+                <select id="my" class="selectpicker " data-live-search="true" data-size="5" data-actions-box="true">
+                    <option value="112550">112550</option>
+                    <option value="357430">357430</option>
+                    <option value="357435">357435</option>
+                </select>
+            </div>-->
+        </div>
+    </div>
+    <div class="panel-body">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">地区</a></li>
+            <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">销售员</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab1">
+                <div class="row" style=" margin-top:1em;">
+                    <div class="col-lg-12">
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            <input type="text" class="form-control" placeholder="请输入查询地址">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 style="background: #ebeef2;
+              padding: .8em 1em;margin: 0;"><strong>上海</strong></h4>
+                        <div class="list-group">
+                           <table class="table table-hover">
+                              
+                                    <tbody>
+                                        <tr>
+                                            <td> 北京XXXX国际贸易有限公司</td>
+                                            <td>销售员Mark</td>
+
+                                        </tr>
+                                        <tr>
+                                              <td> 北京XXXX国际贸易有限公司</td>
+                                            <td>销售员Mark</td>
+                                        </tr>
+                                        <tr>
+                                             <td> 北京XXXX国际贸易有限公司</td>
+                                            <td>销售员Mark</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-lg-12">
+                        <h4 style="background: #ebeef2;
+              padding: .8em 1em;margin: 0;"><strong>北京</strong></h4>
+                        <div class="list-group">
+                                <table class="table table-hover">
+                              
+                                    <tbody>
+                                        <tr>
+                                            <td> 北京XXXX国际贸易有限公司</td>
+                                            <td>销售员Mark</td>
+
+                                        </tr>
+                                        <tr>
+                                              <td> 北京XXXX国际贸易有限公司</td>
+                                            <td>销售员Mark</td>
+                                        </tr>
+                                        <tr>
+                                             <td> 北京XXXX国际贸易有限公司</td>
+                                            <td>销售员Mark</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab2">...</div>
+        </div>
+    </div>
+</div>

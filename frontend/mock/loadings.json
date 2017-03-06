@@ -1,0 +1,18 @@
+{
+    "loadings": [
+        {
+            "loadingId": "LD1",
+            "loadingDestination": "浙江方向",
+            "loadingSendDate": "2017-09-01",
+            "loadingDriver": "张老板",
+            "loadingComment": "装车单备注"
+        },
+        {
+            "loadingId": "LD2",
+            "loadingDestination": "浙江方向",
+            "loadingSendDate": "2017-09-01",
+            "loadingDriver": "王老板",
+            "loadingComment": "装车单备注2"
+        }
+    ]
+}

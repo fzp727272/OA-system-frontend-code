@@ -1,0 +1,27 @@
+<div id="productclass_page">
+    <div id="select-group" style="margin:0;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="containertitle">产品大类</div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>产品名称</th>
+                    <th>类别代码</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#categories}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{code}}</td>
+                </tr>
+                {{/categories}}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+<style scoped>
+    .assistant-tr {
+        background: #fcf8e3;
+    }
+    
+    .table {
+        margin-bottom: 0px;
+    }
+    
+    .expand>.panel-body {
+        padding: 10px 0 13px 0;
+    }
+    
+    .assistant-product-note {}
+    
+    .assistant-product-note>i {
+        padding-right: 5px;
+        font-size: 1.2em;
+        margin-top: .2em;
+    }
+    
+    .assistant-product-info {}
+    
+    .assistant-product-info>i {
+        padding-right: 5px;
+        font-size: 1.2em;
+        margin-top: .2em;
+    } 
+     .expand td{border-top:0 !important;}
+
+    /*.tr-delete{
+  text-decoration: line-through !important;
+  color: #999;
+}*/
+</style>
+<div id="select-group">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="containertitle">订单面板</div>
+        </div>
+    </div>
+</div>
+<div class="panel-body" style="" id="listcontainer">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive" id="assistant-list">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>购货单位</th>
+                            <th>下单日期</th>
+                            <th style="maxheight：500px">订单备注</th>
+                            {{#isSalesman}}
+                            <th style="width:150px"></th>
+                            {{/isSalesman}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#orders}}
+                        <tr class="">
+                            <td>{{orderCustomerName}}</td>
+                            <td>{{orderCreatedDate}}</td>
+                            <td>{{orderComment}}</td>
+                            {{#isSalesman}}
+                            <td>
+                                <button type="button" onclick="event.stopPropagation(); event.preventDefault(); ORDERBOARD.hideOrder('{{orderId}}')" class="btn btn-default assistant-tr-delete">
+                                    <i class="fa  fa-eye-slash" style="margin-right:5px;"></i>不在显示此订单
+                                </button>
+                            </td>
+                            {{/isSalesman}}
+                        </tr>
+                        <tr class="expand ">
+                            <td colspan="16" style="padding:0;">
+                                <div class="col-lg-12 expand" style="margin-top:5px;">
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>产品型号</th>
+                                                        {{^isSalesman}}
+                                                        <th>生产型号</th>
+                                                        {{/isSalesman}}
+                                                        <th>数量</th>
+                                                        <th>发货日期</th>
+                                                        <th>备注</th>
+                                                        <!--<th style="width:120px;"></th>-->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{#items}}
+                                                    <tr class="">
+                                                        <td>
+                                                            {{#productSpecialComment}}
+                                                            <span class="assistant-product-note" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{productSpecialComment}}"><i class="fa fa-info-circle text-info"></i>{{productName}}</span> {{/productSpecialComment}} {{^productSpecialComment}}
+                                                            <span>{{productName}}</span> {{/productSpecialComment}}
+                                                        </td>
+                                                        {{^isSalesman}}
+                                                        <td>{{producibleProductName}}</td>
+                                                        {{/isSalesman}}
+                                                        <td><span class="assistant-product-info" data-trigger="hover" data-toggle="popover" data-placement="right" title="包装信息" data-content="每桶{{productPackageSize}}{{productUnit}}"><i class="fa fa-info-circle text-info">   </i>{{productNumber}}{{productUnit}}</span></td>
+                                                        <td>{{productDeliveryDate}}</td>
+                                                        <td>{{productComment}}</td>
+                                                        <!--
+                                                        <td style="text-align:center">
+                                                            <select class="form-control ">
+                                                                <option><span class="text-success">已生产</span></option>
+                                                                <option>未生产</option>
+                                                            </select>
+                                                        </td>
+                                                        -->
+                                                    </tr>
+                                                    {{/items}}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.table-responsive -->
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/orders}}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+    </div>
+
+    <div class="row text-center" style="margin-top:20px; padding:0 15px;">
+        <div class="col-col-12">
+            <div id="pagination-bar" class="pagination-sm"></div>
+        </div>
+    </div>
+</div>

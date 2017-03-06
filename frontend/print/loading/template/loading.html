@@ -1,0 +1,64 @@
+<div id="main_print_container">
+    {{#pages}}
+    <div class="container">
+        <div class="title">
+            <div class="form-title">
+                <span class="pagenumber">{{index}} <span style="color:#ccc;">/ {{totalPages}}</span></span>装车单
+            </div>
+            <div class="tableheader">
+                <div class="bianhao colume-header"><label for="">编号：{{displayId}}</label></div>
+                <div class="fahuofangxiang colume-header"><label for="">发货方向：{{direction}}</label></div>
+                <div class="fahuoriqi colume-header"><label for="">发货日期：{{sendDate}}</label></div>
+                <div class="zhuangcheriqi colume-header"><label for="">装车日期：</label></div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th id="th1">客户名称</th>
+                        <th id="th2">产品型号</th>
+                        <th id="th3">批号</th>
+                        <th id="th4">包装</th>
+                        <th id="th5">件数</th>
+                        <th id="th6">重量(kg)</th>
+                        <th id="th7">备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#items}}
+                    <tr>
+                        <td class="td1">
+                            <div class="table-cell">{{customerName}}</div>
+                        </td>
+                        <td class="td2">
+                            <div class="table-cell">{{productName}}</div>
+                        </td>
+                        <td class="td3">
+                            <div class="table-cell">{{batchNumber}}</div>
+                        </td>
+                        <td class="td4">
+                            <div class="table-cell">{{packageSize}}</div>
+                        </td>
+                        <td class="td5">
+                            <div class="table-cell">{{packageNumber}}</div>
+                        </td>
+                        <td class="td6">
+                            <div class="table-cell">{{weight}}</div>
+                        </td>
+                        <td class="td7">
+                            <div class="table-cell"></div>
+                        </td>
+                    </tr>
+                    {{/items}}
+                </tbody>
+            </table>
+        </div>
+        <div class="tablebottom">
+            <div class="cheliangsiji colume-bottom"><label for="">车辆司机： {{driverName}}</label></div>
+            <div class="fuzeren colume-bottom"><label for="">负责人：</label></div>
+            <div class="zhuangcheren colume-bottom"><label for="">装车人：</label></div>
+        </div>
+    </div>
+    {{/pages}}
+</div>

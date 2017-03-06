@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Loading animation</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        font-size: 40px;
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+    }
+
+    
+    .loader {
+        display: inline-block;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+    }
+    
+    .loader-container {
+        position: absolute;
+        left: 50%;
+        top: 50%;/*控制这个调整位置*/
+        margin-left: -150px;
+        /*为宽一半这样才能居中*/
+        margin-top: -150px;
+        /*为高一半*/
+        width: 300px;
+        height: 300px;
+        /*等于高*/
+        line-height: 300px;
+        font-size: 2em;
+        text-align: center;
+    }
+    /*  元素 */
+    
+    .loader-quart {
+        border-radius: 50px;
+        border: 6px solid rgba(0, 0, 0, 0.2);
+    }
+    
+    .loader-quart:after {
+        content: '';
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        bottom: -6px;
+        left: -6px;
+        border-radius: 50px;
+        border: 6px solid transparent;
+        border-top-color: rgba(0, 0, 0, 1);
+        /*#03a9f4*/
+        -webkit-animation: spin 1s linear infinite;
+        animation: spin 1s linear infinite;
+    }
+    
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+            tranform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            tranform: rotate(360deg);
+        }
+    }
+    
+    @keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+            tranform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            tranform: rotate(360deg);
+        }
+    }
+    </style>
+</head>
+
+<body>
+   
+        <div class="loader-container"><span class="loader loader-quart"> </span> 加载中...</div>
+  
+</body>
+
+</html>

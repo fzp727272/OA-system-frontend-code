@@ -1,0 +1,28 @@
+{
+    "orderId": "1",
+    "orderCreatedTime": "2016-10-4",
+    "customerName": "大天才果冻厂",
+    "items": [
+        {
+            "productId": "1",
+            "productName": "产品A",
+            "productUnit": "KG",
+            "productNumber": 1000,
+            "productPackageSize": 13,
+            "productPackageNumber": 10,
+            "productDeliverDate": "2019-05-01",
+            "productComment": "小桥流水"
+        },
+        {
+            "productId": "2",
+            "productName": "产品B",
+            "productUnit": "KG",
+            "productNumber": 1000,
+            "productPackageSize": 13,
+            "productPackageNumber": 10,
+            "productDeliverDate": "2019-05-01",
+            "productComment": "小桥流水"
+        }
+    ],
+    "orderComment": "我是订单备注"
+}

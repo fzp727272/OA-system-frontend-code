@@ -1,0 +1,113 @@
+<div id="newcustomer_page">
+    <div id="select-group" style="margin:0;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="containertitle">新添客户列表</div>
+                  <button type="button" class="btn btn-primary" name="btn-newSalesman">
+                    <i class="fa fa-plus"></i>新添客户
+            </button>
+            </div>
+            {{#isSalesman}}
+          
+            {{/isSalesman}}
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>客户名</th>
+                    <th>组别</th>
+                    <th>业务员</th>
+                    <th>开票名称</th>
+                    <th>地址、电话</th>
+                    <th>纳税人识别号</th>
+                    <th>开户行及账号</th>
+                    {{#isAdmin}}
+                    <th></th>
+                    {{/isAdmin}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#customers}}
+                <tr>
+                    <td><a name='name' data-type="text" data-pk="{{id}}" data-title="修改客户名" data-emptytext="空" data-name="name">{{name}}</a></td>
+                    <td><a name='groupName' data-type="select" data-pk="{{id}}" data-title="修改组别" data-emptytext="空" data-name="groupId">{{groupName}}</a></td>
+                    <td><a name='salesmanName' data-type="select" data-pk="{{id}}" data-title="修改业务员" data-emptytext="空" data-name="salesmanid">{{salesmanName}}</a></td>
+                    <td><a name='issueReceiptName' data-type="text" data-pk="{{id}}" data-title="修改开票名称" data-emptytext="空" data-name="issueReceiptName">{{issueReceiptName}}</a></td>
+                    <td><a name='address' data-type="text" data-pk="{{id}}" data-title="修改地址、电话" data-emptytext="空" data-name="address">{{address}}</a></td>
+                    <td><a name='taxId' data-type="text" data-pk="{{id}}" data-title="修改纳税人识别号" data-emptytext="空" data-name="taxId">{{taxId}}</a></td>
+                    <td><a name='bankName' data-type="text" data-pk="{{id}}" data-title="开户行及账号" data-emptytext="空" data-name="bankName">{{bankName}}</a></td>
+                    {{#isAdmin}}
+                    <td><button onclick='NEWCUSTOMER.activeNewCustomer({{id}})'>启用</button></td>
+                    {{/isAdmin}}
+                </tr>
+                {{/customers}}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" name="new_customer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">新添客户</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>名称</label>
+                                <input name="name" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>组别</label>
+                                <select class="selectpicker form-control" name="group">
+                                    {{#groups}}
+                                    <option value="{{id}}">{{name}}</option>
+                                    {{/groups}}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>业务员</label>
+                                <select class="selectpicker form-control" name="salesman">
+                                    {{#salesman}}
+                                    <option value="{{id}}">{{name}}</option>
+                                    {{/salesman}}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>开票名称</label>
+                                <input name="issuereceiptname" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>地址、电话</label>
+                                <input name="address" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>纳税人识别号</label>
+                                <input name="taxid" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>银行</label>
+                                <input name="bankName" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>开票备注</label>
+                                <input name="issueReceiptComment" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button name="submit_new_customer" type="button" class="btn btn-primary" onclick="NEWCUSTOMER.newCustomer()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,194 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="/assets/lib/jquery-1.12.2.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/moment.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/mustache.min.js"></script>
+    <script type="text/javascript" src="print.js"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            margin: 0;
+            width: 21cm;
+        }
+        
+        .title {
+            font-size: 1.4cm;
+            overflow: hidden;
+            position: relative;
+            margin-top: .3cm;
+            border-bottom: 2px solid #333;
+        }
+        
+        .pagenumber {
+            padding-right: 2cm;
+            font-size: 1cm;
+            line-height: 1.5cm;
+            /*这个根据样式自己调*/
+        }
+        
+        .form-title {
+            border-right: 2px solid;
+            margin-top: .7cm;
+            text-align: left;
+            float: left;
+            width: 60%;
+        }
+        
+        .tableheader {
+            overflow: hidden;
+            margin-top: .5cm;
+            font-size: .3cm;
+            padding-left: 1.6cm;
+        }
+        
+        .colume-header {
+            padding-bottom: .2cm;
+        }
+        
+        .bianhao {}
+        
+        .fahuofangxiang {}
+        
+        .fahuoriqi {}
+        
+        .zhuangcheriqi {}
+        
+        .tablebottom {
+            overflow: hidden;
+            margin-top: .3cm;
+            font-size: .3cm;
+            padding: 0 .1cm;
+        }
+        
+        .colume-bottom {
+            padding: .2cm 0 .2cm .5cm;
+            border-bottom: 0.06cm solid #333;
+            float: left;
+            width: 26%;
+        }
+        
+        #th1 {
+            width: 2.16cm;
+            height: 1cm;
+        }
+        
+        #th2 {
+            width: 2.7cm;
+        }
+        
+        #th3 {
+            width: 2.7cm;
+        }
+        
+        #th4 {
+            width: 1.8cm;
+        }
+        
+        #th5 {
+            width: 1.8cm;
+        }
+        
+        #th6 {
+            width: 1.8cm;
+        }
+        
+        #th7 {
+            width: 4.5cm;
+        }
+        
+        .td1 {
+            width: 2.16cm;
+            height: 1cm;
+        }
+        
+        .td2 {
+            width: 2.7cm;
+            height: 1cm;
+        }
+        
+        .td3 {
+            width: 2.7cm;
+            height: 1cm;
+        }
+        
+        .td4 {
+            width: 1.8cm;
+            height: 1cm;
+        }
+        
+        .td5 {
+            width: 1.8cm;
+            height: 1cm;
+        }
+        
+        .td6 {
+            width: 1.8cm;
+            height: 1cm;
+        }
+        
+        .td7 {
+            width: 4.5cm;
+            height: 1cm;
+        }
+        
+        table {
+            line-height: 1.2;
+            font-size: .3cm;
+            width: 100%;
+            padding: 0;
+            margin-top: .5cm;
+            border-collapse: collapse;
+            border: 0.06cm solid #333;
+        }
+        
+        td {
+            border-top: 1px solid #ccc;
+            padding: 0;
+        }
+        
+        th {
+            border-top: 1px solid #ccc;
+            padding: 0;
+        }
+        
+        .table-cell {
+            width: inherit;
+            height: inherit;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-align: center;
+            line-height: 1cm;
+        }
+        
+        .container {
+            page-break-after: always;
+            width: 18cm;
+            max-width: 18cm;
+            margin-left: 1.5cm;
+            margin-right: 1.5cm;
+        }
+        
+        .tableheader {
+            float: left;
+        }
+        
+        .cheliangsiji {
+            margin-right: 6%;
+        }
+        
+        .zhuangcheren {
+            margin-left: 6%;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv=Content-Type content=“text/html;charset=utf-8″>
+    <meta http-equiv=X-UA-Compatible content=IE=EmulateIE7>
+    <title>荣泰</title>
+</head>
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/ui-dialog.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-editable.css">
+<link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+
+<style>
+
+.fa-check-square {
+    color: #03A9F4;
+}
+
+.fa-square-o {
+    color: #9E9E9E;
+}
+    
+body {
+    overflow-y:auto !important;
+}
+</style>
+
+<body>
+    <div id="side_bar">
+        <li class="logo-list">
+            <a href="" class="left-logo">
+                <svg id="logo" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve" style="width:40px;display:inline-block;">
+                    <g xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M112.2,62.856v0.002c6.548,0.964,11.628,6.755,11.628,13.575    c0,7.499-6.074,13.577-13.567,13.577c-0.042,0-0.083-0.002-0.125-0.003v0.003H98.051l18.801,42.086l16.86-5.431l-9.82-22.353    c10.293-5.049,17.379-15.635,17.379-27.879c0-16.414-12.734-29.849-28.856-30.955l-0.021-0.076H78.865l7.17,17.261L112.2,62.856z     M33.146,11.207v138.951c23.437,7.544,46.881,15.091,70.317,22.637c22.795-7.546,45.597-15.093,68.392-22.637V11.207H33.146z     M156.925,139.562c-18.22,5.858-36.446,11.721-54.666,17.579c-18.059-5.858-36.125-11.721-54.183-17.579V26.137h108.849V139.562z     M86.214,90.122H66.859v34.614l19.355,6.665V90.122z" style="&#10;    " />
+                        </g>
+                    </g>
+                </svg>
+                <span style=" ">荣泰</span>
+            </a>
+        </li>
+        <ul class="nav_left">
+        </ul>
+        <div class="user-show" id="user">
+            <img src="assets/img/touxiang.png" class="img-circle">
+            <span id="userName">用戶</span>
+        </div>
+    </div>
+    <div id="page-body">
+        <div class="panel panel-default" style="margin:0 1em 0 1em; ">
+            <div class="panel-body" id="panel-body"></div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="loginModalLabel">账户登陆</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="LM_username" class="form-control" placeholder="账号" name="username" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input id="LM_password" class="form-control" placeholder="密码" name="password" type="password" value="">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="login" class="btn btn-primary">登陆</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modifyPasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="loginModalLabel">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input name="oldPassword" class="form-control" placeholder="原密码" autofocus/>
+                    </div>
+                    <div class="form-group">
+                        <input name="newPassword" class="form-control" placeholder="新密码" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" name="relogin" class="btn">重新登陆</button>
+                    <button type="button" name="changePassword" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="assets/lib/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="assets/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/lib/underscore-min.js"></script>
+<script type="text/javascript" src="assets/lib/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/lib/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="assets/lib/bootstrap-editable.min.js"></script>
+<script type="text/javascript" src="assets/lib/dialog-min.js"></script>
+<script type="text/javascript" src="assets/lib/mustache.min.js"></script>
+<script type="text/javascript" src="assets/lib/moment.min.js"></script>
+<script type="text/javascript" src="assets/lib/jquery.twbsPagination.min.js"></script>
+<script type="text/javascript" src="assets/lib/ajax-bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/lib/sweetalert.min.js"></script>
+<script type="text/javascript" src="assets/lib/select2.full.min.js"></script>
+<script type="text/javascript" src="assets/js/customerselect.js"></script>
+<script type="text/javascript" src="assets/js/masterdata.js"></script>
+<script type="text/javascript" src="assets/js/pagination.js"></script>
+<script type="text/javascript" src="assets/js/navigator.js"></script>
+<script type="text/javascript" src="assets/js/messagebox.js"></script>
+<script type="text/javascript" src="pages/login/js/login.js"></script>
+<script type="text/javascript" src="assets/js/param.js"></script>
+<script type="text/javascript" src="pages/customer/js/customer.js"></script>
+<script type="text/javascript" src="pages/group/js/customerGroup.js"></script>
+<script type="text/javascript" src="pages/order/js/order.js"></script>
+<script type="text/javascript" src="pages/progress/js/NewOrderWizard.js"></script>
+<script type="text/javascript" src="pages/orderdetail/js/orderdetail.js"></script>
+<script type="text/javascript" src="pages/orderdetail/js/newinvoice.js"></script>
+<script type="text/javascript" src="pages/productclass/js/productclass.js"></script>
+<script type="text/javascript" src="pages/orderboard/js/orderboard.js"></script>
+<script type="text/javascript" src="pages/loading/js/loading.js"></script>
+<script type="text/javascript" src="pages/loadingdetail/js/loadingdetail.js"></script>
+<script type="text/javascript" src="pages/driver/js/driver.js"></script>
+<script type="text/javascript" src="pages/salesman/js/salesman.js"></script>
+<script type="text/javascript" src="pages/newcustomer/js/newcustomer.js"></script>
+<script type="text/javascript" src="pages/userboard/js/userboard.js"></script>
+<script type="text/javascript" src="pages/producibleproduct/js/producibleproduct.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    USER.bindEvent();
+    USER.load();
+});
+
+$("#side_bar").on('click', '.list_left', function(event) {
+    $(".list_left").removeClass('list_left_active');
+    $(this).addClass('list_left_active');
+});
+    
+$.fn.editable.defaults.mode = 'inline';
+$.fn.editable.defaults.onblur = 'ignore';
+</script>
+
+</html>

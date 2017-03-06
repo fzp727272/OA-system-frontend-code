@@ -1,0 +1,489 @@
+<link rel="stylesheet" type="text/css" href="pages/orderdetail/css/orderdetail.css">
+<div class="row" id="OD_div_invoices">
+    <input type="file" name="saveFileDialog" style="display: none" nwsaveas>
+    <div class="col-lg-12">
+        <p style="padding-left:15px; padding-bottom: 5px;">
+            <span class="taq-decorate"></span>
+            <label for="">购货单位：</label><span>{{orderCustomerName}}</span>
+            <label style="margin-left:20px">下单日期：</label>
+            {{^isAdmin}}
+            <span>{{orderCreatedDate}}</span> {{/isAdmin}} {{#isAdmin}}
+            <span><a href="#" name="orderCreatedDate" data-type="text" data-pk="{{orderId}}" data-title="更改日期" data-name="orderCreatedDate">{{orderCreatedDate}}</a></span> {{/isAdmin}}
+            <!--
+            <a class="btn btn-primary" data-toggle="modal" data-target="#fixorder" style="float:right;margin-right:10px">
+                <i class="fa fa-plus" style="margin-right:5px"></i>修改订单</a>
+            -->
+            <button type="button" class="btn btn-primary pull-right" id="BTN_newinvoice">
+                <i class="fa fa-plus"></i>添加发货单
+            </button>
+            {{#isAdmin}}
+            <button type="button" class="btn btn-primary pull-right" style="float:right;margin-right:10px" onclick="OrderDetail.deleteOrder()">
+                删除订单
+            </button>
+            {{/isAdmin}}
+        </p>
+        <div class="table-responsive" style="border:1px solid #e5e5e5;overflow:hidden;">
+            <table class="table table-striped" style="margin-bottom:0;">
+                <thead>
+                    <tr>
+                        <th>产品名称或型号</th>
+                        <th>单位</th>
+                        <th>数量</th>
+                        <th>包装规格</th>
+                        <th>包装数量</th>
+                        <th>交货日期</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#items}}
+                    <tr>
+                        <td>{{productName}}</td>
+                        <td>{{productUnit}}</td>
+                        <td>{{productNumber}}</td>
+                        <td>{{productPackageSize}}</td>
+                        <td>{{productPackageNumber}}</td>
+                        <td>{{productDeliveryDate}}</td>
+                        <td>{{comment}}</td>
+                    </tr>
+                    {{/items}}
+                </tbody>
+            </table>
+        </div>
+        <div class="order-note">
+            <label for="">备注:</label><span> {{comment}}</span> </div>
+        <p style="padding:5px 0;"></p>
+        <div class="row">
+            {{#invoices}}
+            <div class="col-lg-12 {{#isDiscard}}show-strike-through{{/isDiscard}}" style="">
+                <div><span class="recipt"><i class="fa fa-send"></i></span>发货单 {{^isDiscard}}
+                    <button type="button" name="onLoading" class="btn btn-default " value="{{invoiceId}}" style="margin-left:2em">
+                        {{#loadingId}}
+                        <i class="fa fa-check" style="padding-right:5px"></i>已上车 {{/loadingId}} {{^loadingId}}
+                        <i class="fa fa-truck" style="padding-right:5px"></i>上车 {{/loadingId}}
+                    </button>
+                    <button type="button" name="printInvoice" class="btn btn-default " value="{{invoiceId}}">
+                        <i class="fa fa-print" style="padding-right:5px"></i>打印
+                    </button>
+                    <button type="button" name="discardInvoice" class="btn btn-default " value="{{invoiceId}}">
+                        <i class="fa fa-times" style="padding-right:5px"></i>作废
+                    </button>
+                    <button type="button" name="generateReceipt" class="btn btn-default " value="{{invoiceId}}">
+                        <i class="fa fa-clone" style="padding-right:5px"></i>{{#receiptId}}已开票 {{receiptId}}{{/receiptId}} {{^receiptId}}未开票{{/receiptId}}
+                    </button> {{/isDiscard}} {{#isAdmin}}
+                    <button type="button" name="deleteInvoice" class="btn btn-default " onclick="OrderDetail.deleteInvoice({{invoiceId}})" {{#isDiscard}}style="margin-left:2em" {{/isDiscard}}>
+                        <i class="fa fa-ban" style="padding-right:5px"></i>删除
+                    </button>
+                    {{/isAdmin}} {{^isAdmin}}
+                    <span class="pull-right text-muted ">{{invoiceCreatedDate}}</span> {{/isAdmin}} {{#isAdmin}}
+                    <span class="pull-right text-muted ">
+                        <a href="#" name="invoiceCreatedDate" data-type="text" data-pk="{{invoiceId}}" data-title="更改日期" data-name="invoiceCreatedDate">{{invoiceCreatedDate}}</a>
+                    </span> {{/isAdmin}}
+                </div>
+                <div class="panel panel-default" style="margin-left:4em; margin-top:1em;">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 text-left">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#tab-{{invoiceId}}-invoice" class="huge" style="font-size:1.5em;padding-bottom:10px;" role="tab" data-toggle="tab">
+  {{^isAdmin}}  &nbsp{{invoiceDisplayId}}&nbsp
+                                     
+                                    {{/isAdmin}}
+                                    {{#isAdmin}}
+                                        <a name='displayid' data-type="text" data-pk="{{invoiceId}}" data-title="修改发货单编号" data-emptytext="空" data-name="displayid"> {{invoiceDisplayId}}
+                                   </a> {{/isAdmin}}
+                                        </a>
+                                    </li>
+                                    <li role="presentation"><a href="#tab-{{invoiceDisplayId}}-receipt" class="huge" style="font-size:1.5em;padding-bottom:10px;" role="tab" data-toggle="tab">ticket <span class="badge">42</span></a></li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="tab-{{invoiceId}}-invoice">
+                                        <div>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>产品名称</th>
+                                                        <th>单位</th>
+                                                        <th>包装规格</th>
+                                                        <th>包装数量</th>
+                                                        <th>单价</th>
+                                                        <th>备注</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{#items}}
+                                                    <tr>
+                                                        <td>{{productName}}</td>
+                                                        <td>{{productUnit}}</td>
+                                                        <td>{{productPackageSize}}</td>
+                                                        <td>{{productPackageNumber}}</td>
+                                                        <td>{{productUnitPrice}}</td>
+                                                        <td>{{comment}}</td>
+                                                    </tr>
+                                                    {{/items}}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="tab-{{invoiceDisplayId}}-receipt">
+                                        <div class="row" style="margin-top:10px;">
+                                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                                <div class="panel panel-default" style="margin-bottom:10px">
+                                                    <div class="panel-heading">
+                                                        <i class="fa fa-clone"></i> 发票1
+                                                        <div class="pull-right">
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                    操作
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                                    <li><a href="#">废弃</a>
+                                                                    </li>
+                                                                    <li><a href="#">XX</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.panel-heading -->
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>产品名称</th>
+                                                                        <th>数量</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>Mark</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td>Jacob</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td>Larry</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.panel-body -->
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                                <div class="panel panel-default" style="margin-bottom:10px">
+                                                    <div class="panel-heading">
+                                                        <i class="fa fa-clone"></i> 发票1
+                                                        <div class="pull-right">
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                                    操作
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                                    <li><a href="#">废弃</a>
+                                                                    </li>
+                                                                    <li><a href="#">XX</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.panel-heading -->
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>产品名称</th>
+                                                                        <th>数量</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>Mark</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td>Jacob</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td>Larry</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.panel-body -->
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                                <div class="panel panel-default show-strike-through" style="margin-bottom:10px">
+                                                    <div class="panel-heading">
+                                                        <i class="fa fa-clone"></i> 发票1
+                                                        <div class="pull-right">
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-default btn-xs dropdown-toggle disabled" data-toggle="dropdown" aria-expanded="false">
+                                                                    操作
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                                    <li><a href="#">废弃</a>
+                                                                    </li>
+                                                                    <li><a href="#">XX</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.panel-heading -->
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>产品名称</th>
+                                                                        <th>数量</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>Mark</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td>Jacob</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td>Larry</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- /.panel-body -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/invoices}}
+        </div>
+    </div>
+</div>
+<!--
+<iframe id="printInvoice" style="border:0;position:absolute;width:0px;height:0px;right:0px;top:0px;"></iframe>
+-->
+<div class="modal fade" id="modal_newinvoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加发货单</h4>
+            </div>
+            <div class="modal-body" id="makenewsendcontainer">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal_receiptNumber" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">输入发票号</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <input name="receiptNumber" type="text" class="form-control" placeholder="" aria-describedby="basic-addon2">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button name="confirm" type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="modal fade" id="fixsend" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改发货单</h4>
+            </div>
+            <div class="modal-body" style="overflow:hidden;">
+                <button type="button" class="btn btn-default btn-block col-lg-6 radio" data-toggle="modal" data-target="#fixremarks" data-dismiss="modal"> 修改备注
+                </button>
+                <button type="button" class="btn btn-default btn-block col-lg-6" data-toggle="modal" data-target="#sendfixproduct" data-dismiss="modal">修改产品
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sendfixproduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改发货单-修改产品</h4>
+            </div>
+            <div class="modal-body" style="overflow:hidden;">
+                <div class="table-responsive" style="max-height:500px;    overflow-x: hidden; overflow-y:auto;">
+                    <table class="table  table-expandable1 " style="margin-bottom:0;">
+                        <thead>
+                            <tr>
+                                <th>产品名称或型号</th>
+                                <th>单位</th>
+                                <th>数量</th>
+                                <th>包装规格</th>
+                                <th>包装数量</th>
+                                <th>交货日期</th>
+                                <th>备注</th>
+                                <th style="width:120px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>English</td>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>
+                                    <button class="btn btn-default" style="margin-left:5px"><i class="fa fa-pencil"></i>
+                                </button>
+                                    <button class="btn btn-default" style="margin-left:5px"><i class="fa fa-times"></i>
+                                </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="addproduct" style="display:inline-block;padding:10px 15px; cursor:pointer"><i
+                            class="fa fa-plus" style="margin-right:5px;"></i>添加产品</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fixorder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改订单-选择修改项目</h4>
+            </div>
+            <div class="modal-body" style="overflow:hidden;">
+                <button type="button" class="btn btn-default btn-block col-lg-6 radio" data-toggle="modal" data-target="#fixremarks" data-dismiss="modal"> 修改备注
+                </button>
+                <button type="button" class="btn btn-default btn-block col-lg-6" data-toggle="modal" data-target="#fixproduct" data-dismiss="modal">修改产品
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fixremarks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改订单-修改备注</h4>
+            </div>
+            <div class="modal-body" style="overflow:hidden;">
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="原先备注发送到发送到发送到发"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="fixproduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改订单-修改产品</h4>
+            </div>
+            <div class="modal-body" style="overflow:hidden;">
+                <div class="table-responsive" style="max-height:500px;    overflow-x: hidden; overflow-y:auto;">
+                    <table class="table  table-expandable1 " style="margin-bottom:0;">
+                        <thead>
+                            <tr>
+                                <th>产品名称或型号</th>
+                                <th>单位</th>
+                                <th>数量</th>
+                                <th>包装规格</th>
+                                <th>包装数量/桶</th>
+                                <th>单价</th>
+                                <th>交货日期</th>
+                                <th>备注</th>
+                                <th style="width:120px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>English</td>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>English</td>
+                                <td>
+                                    <button class="btn btn-default" style="margin-left:5px"><i class="fa fa-pencil"></i>
+                                </button>
+                                    <button class="btn btn-default" style="margin-left:5px"><i class="fa fa-times"></i>
+                                </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="addproduct" style="display:block;padding:10px 15px; cursor:pointer"><i class="fa fa-plus"
+                                                                                                     style="margin-right:5px;"></i>添加产品</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+-->

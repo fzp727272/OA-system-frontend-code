@@ -1,0 +1,112 @@
+<div class="container-fluid">
+    <div class="panel panel-default" style="overflow:hidden;">
+        <div class="panel-body" style="margin: 0 15px; padding:15px 0; position: relative;">
+            <div style="display: inline-block; width: 25px; height: 6px; border-top: 4px solid; margin-right: .5em;"></div>
+            <h4 style="display:inline-block;font-weight:bold; padding-right: 1em;">{{customerName}}</h4>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="panel panel-default" style="box-shadow:none; word-wrap: break-word;margin-bottom:10px;">
+                <div class="panel-heading" style="background:#fff;">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-12 customer-detail-item">
+                            <p class="help-block"><small>业务员</small></p>
+                            <h5>{{salesmanName}}</h5>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 customer-detail-item">
+                            <p class="help-block"><small>开票名称</small></p>
+                            <h5><a name='customerIssueReceiptName' data-type="text" data-pk="{{customerId}}" data-title="修改开票名称" data-emptytext="空" data-name="issueReceiptName">{{customerIssueReceiptName}}</a></h5>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 customer-detail-item">
+                            <p class="help-block"><small>地址、电话</small></p>
+                            <h5><a name='address' data-type="text" data-pk="{{customerId}}" data-title="修改地址、电话" data-emptytext="空" data-name="address">{{address}}</a></h5>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 customer-detail-item">
+                            <p class="help-block"><small>纳税人识别号</small></p>
+                            <h5><a name='taxId' data-type="text" data-pk="{{customerId}}" data-title="修改纳税人识别号" data-emptytext="空" data-name="taxId">{{taxId}}</a></h5>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 customer-detail-item">
+                            <p class="help-block"><small>银行</small></p>
+                            <h5><a name='bankName' data-type="text" data-pk="{{customerId}}" data-title="开户行及账号" data-emptytext="空" data-name="bankName">{{bankName}}</a></h5>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-12 customer-detail-item">
+                            <p class="help-block"><small>开票备注</small></p>
+                            <h5>{{issueReceiptComment}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel-body">
+            <p style="    padding-left: 10px;
+    font-size: 1.2em;">产品列表</p>
+            <div class="panel panel-default" style="margin-bottom:0;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>产品名称</th>
+                            <th>开票名称</th>
+                            <th>单位</th>
+                            <th>价格</th>
+                            <th>包装规格</th>
+                            <th>毛重(公斤)</th>
+                            <th>销售备注</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#products}}
+                        <tr>
+                            <td>
+                                <div class='huge' id="{{id}}" style=''>
+                                    {{name}}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="product-list"><span></span>
+                                    <a name='issueReceiptName' data-type="text" data-pk="{{id}}" data-title="修改开票名称" data-emptytext="空" data-name="issueReceiptName">{{issueReceiptName}}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="product-list"><span></span>
+                                    <a name='unitName' data-type="text" data-pk="{{id}}" data-title="修改生产者备注" data-emptytext="空" data-name="unitName">{{unitName}}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="product-list"><span></span>
+                                    <a name='unitPrice' data-type="text" data-pk="{{id}}" data-title="修改价格" data-emptytext="空" data-name="unitPrice">{{unitPrice}}</a>
+                                    <span name="price_history" data-trigger="hover" data-toggle="popover" data-placement="right" data-title="最近十次价格修改记录" data-html=true data-content='<ul class="list-group">{{#productPriceChanges}}<li class="list-group-item">{{dateDisplay}} 修改为 {{productUnitPrice}}</li>{{/productPriceChanges}}</ul>'>
+                                    <i class="fa fa-info-circle text-info"></i>
+                                </span>
+                                </div>
+                            </td>
+                            <th>
+                                <div class="product-list"><span></span>
+                                    <a name='packageSize' data-type="text" data-pk="{{id}}" data-title="修改包装规格" data-emptytext="空" data-name="packageSize">{{packageSize}}</a>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="product-list"><span></span>
+                                    <a name='packageWeight' data-type="text" data-pk="{{id}}" data-title="修改毛重" data-emptytext="空" data-name="packageWeight">{{packageWeight}}</a>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="product-list"><span></span>
+                                    <a name='salesmanComment' data-type="text" data-pk="{{id}}" data-title="修改销售备注" data-emptytext="空" data-name="salesmanComment">{{salesmanComment}}</a>
+                                </div>
+                            </th>
+                        </tr>
+                        {{/products}}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('.customer-detail-item').children('h5').tooltip();
+    })
+</script>

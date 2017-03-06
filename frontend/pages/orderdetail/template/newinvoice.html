@@ -1,0 +1,23 @@
+<div>
+    <table class="table table-expandable1" style="margin-bottom:0;">
+        <thead>
+            <tr>
+                <th>产品名称</th>
+                <th>包装数量</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#items}}
+            <tr orderItemId="{{orderItemId}}">
+                <td>{{productName}} </td>
+                <td><input name="packageNumber" class="form-control" type="number"></td>
+                <td><input style="width: 100%" name="comment" class="form-control" value="{{commentFromOrderItem}}"></td>
+            </tr>
+            {{/items}}
+        </tbody>
+    </table>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" name="make">确定</button>
+    </div>
+</div>

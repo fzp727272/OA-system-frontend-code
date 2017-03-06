@@ -1,0 +1,74 @@
+<div id="userboard_page">
+    <div id="select-group" style="margin:0;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="containertitle">系统用户</div>
+                <button type="button" class="btn btn-primary" name="btn-newUser">
+                    <i class="fa fa-plus"></i>新添用户
+            </button>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>权限</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#users}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>
+                        {{#permissionSet}}
+                        <span>{{name}}</span>{{/permissionSet}}
+                    </td>
+                </tr>
+                {{/users}}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" name="new_user" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                    <h4 class="modal-title" id="myModalLabel">新添用户</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>姓名</label>
+                                <input name="name" class="form-control" />
+                            </div>
+                            <div class="form-group ">
+                                <label>权限</label>
+                                <select name="permission" class="selectpicker form-control">
+                                    <option value="2">管理员</option>
+                                    <option value="4">生产员</option>
+                                    <option value="8">销售员</option>
+                                    <option value="16">质检员</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>默认密码为：123456</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button name="submit_new_user" type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

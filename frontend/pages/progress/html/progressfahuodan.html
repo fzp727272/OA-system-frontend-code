@@ -1,0 +1,152 @@
+<style>
+    .chooseperson {
+        display: block;
+        color: #333;
+        text-align: center;
+        padding: .45em 0;
+        cursor: pointer;
+        font-size: 14px;
+        border-bottom: 1px solid #dcdcdc;
+        margin: 0 4.5em;
+    }
+
+    .chooseperson.disable {
+        display: block;
+        color: #ddd;
+        text-align: center;
+        padding: .45em 0;
+        cursor: pointer;
+        font-size: 14px;
+        border-bottom: 1px solid #dcdcdc;
+        margin: 0 4.5em;
+    }
+
+    .chooseperson:hover {
+        background: .6em center no-repeat url("../../assets/img/no-choose.png");
+        background-size: 1.3em 1.3em;
+        background-color: #f5f5f5;
+    }
+
+    .chooseperson:active,
+    .chooseperson.active {
+        background: .6em center no-repeat url("../../assets/img/chooseactive.png");
+        background-size: 1.3em 1.3em;
+    }
+
+    .lead {
+        font-size: 14px !important;
+        text-align: left;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="assets/css/progress.css">
+
+
+<section class="section">
+    <!--  <h3>Write something</h3>
+  -->
+
+    <div class="animation-container" style='margin-top:0;'>
+        <!-- Step one -->
+        <div class="form-step js-form-step " data-step="1">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="table-responsive" style="max-height:500px;    overflow-x: hidden; overflow-y:auto;">
+
+                        <table class="table  table-expandable1 " style="margin-bottom:0;">
+                            <thead>
+                            <tr>
+                                <th>产品名称或型号</th>
+                                <th>单位</th>
+                                <th>数量</th>
+                                <th>包装规格</th>
+                                <th>包装数量/桶</th>
+
+                                <th>备注</th>
+                                <th style="width:120px"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>English</td>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>English</td>
+                                <td>
+                                    <button class="btn btn-default" style="margin-left:5px"><i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-default" style="margin-left:5px"><i class="fa fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                        <a class="addproduct" style="display:inline-block;padding:10px 15px; cursor:pointer"><i
+                                class="fa fa-plus" style="margin-right:5px;"></i>添加产品</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row btn-footer" style="padding-bottom: 1em;">
+                <div class="col-lg-12">
+
+                    <button type="submit" class="btn btn-primary continue">下一步</button>
+                </div>
+            </div>
+        </div>
+        <!-- Step two -->
+        <div class="form-step js-form-step waiting hidden" data-step="2">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="table-responsive" style="max-height:500px;    overflow-x: hidden; overflow-y:auto;">
+
+                        <table class="table  table-expandable1 " style="margin-bottom:0;">
+                            <thead>
+                            <tr>
+                                <th>产品名称或型号</th>
+                                <th>单位</th>
+                                <th>数量</th>
+                                <th>包装规格</th>
+                                <th>包装数量/桶</th>
+
+                                <th>备注</th>
+                                <th style="width:120px"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>English</td>
+                                <td>United States of America</td>
+                                <td>306,939,000</td>
+                                <td>9,826,630 km2</td>
+                                <td>English</td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row btn-footer" style="padding-bottom: 1em;">
+                <div class="col-lg-12">
+                    <button type="button" class="btn btn-default prev">上一步</button>
+                    <button type="submit" class="btn btn-primary">完成</button>
+                </div>
+            </div>
+        </div>
+        <!-- Step three -->
+
+    </div>
+</section>
+
+<script type="text/javascript" src="pages/progress/js/progress.js"></script>

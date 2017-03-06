@@ -1,0 +1,153 @@
+<div id="page_loadingdetail">
+    <style scoped>
+        #select {
+            width: 100%;
+            line-height: 25px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            padding: 0 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        #select i {
+            width: 0;
+            height: 0;
+            border-top: 5px solid #333;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+        }
+        
+        #select span {
+            display: block;
+            height: 32px;
+            line-height: 32px;
+            cursor: pointer;
+        }
+        
+        #select ul,
+        #select li {
+            width: 100%;
+            padding: 0;
+            margin: 0
+        }
+        
+        #select li {
+            line-height: 30px;
+            color: #666;
+            list-style-type: none;
+            border-bottom: 1px dashed #eee;
+            cursor: pointer;
+            transition: all 1s ease 0s;
+        }
+        
+        #select li:hover {
+            border-bottom: 1px solid #51A6FF;
+            background-color: #DAF0FF;
+            padding-left: 20px;
+            font-weight: bold;
+        }
+        
+        #select li:last-child {
+            border-bottom: 0
+        }
+        
+        #select ul {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            z-index: 10000;
+            left: 0;
+            border: 1px solid #bec9d3;
+        }
+        
+        .flipx {
+            transform: rotateY(180deg);
+        }
+    </style>
+    <div class="row">
+     
+        <div class="col-lg-12">
+            <p style="padding-left:5px; padding-bottom: 5px;">
+                <label style="margin-left:0px">编号：</label><span>{{loadingDisplayId}}</span>
+                <label style="margin-left:20px">发货方向：</label><span>{{direction}}</span>
+                <label style="margin-left:20px">发货日期：</label><span>{{sendDateDisplay}}</span>
+                <label style="margin-left:20px">车辆司机：</label><span>{{driverName}}</span>
+                   <button type="button" class="btn btn-primary pull-right" onclick="LOADINGDETAIL.printLoading()"> <i class="fa fa-print" style="padding-right:.5em;"></i> 打印</button>
+            </p>
+
+            <p style="padding:5px 0;"></p>
+
+            <div class="row">
+                {{#invoices}}
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12 text-left">
+                                    <div class="huge" style="font-size:1.5em;padding-bottom:10px;">{{invoiceCustomerName}} {{invoiceDisplayId}}<span class="pull-right text-muted small">{{dateCreatedDisplay}}</span></div>
+                                    <table class="table table-striped" style="margin-bottom: 0px;">
+                                        <thead>
+                                            <tr>
+                                                <th>产品型号</th>
+                                                {{#showProducibleProductName}}
+                                                <th>生产型号</th>
+                                                {{/showProducibleProductName}}
+                                                <th>批号</th>
+                                                <th>单位</th>
+                                                <th>包装规格</th>
+                                                <th>包装数量</th>
+                                                <th>备注</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#items}}
+                                            <tr>
+                                                {{#productSpecialComment}}
+                                                <td>
+                                                    <span class="assistant-product-note" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{productSpecialComment}}"><i class="fa fa-info-circle text-info"></i>{{productName}}</span>
+                                                </td>
+                                                {{/productSpecialComment}}
+                                                {{^productSpecialComment}}
+                                                <td>{{productName}}</td>
+                                                {{/productSpecialComment}}
+                                                {{#showProducibleProductName}}
+                                                <td>{{producibleProductName}}</td>
+                                                {{/showProducibleProductName}}
+                                                <td><a name='batchnumber' data-type="text" data-pk="{{id}}" data-title="修改批号" data-emptytext="空" data-name="batchnumber">{{batchNumber}}</a></td>
+                                                <td>{{productUnit}}</td>
+                                                <td>{{packageSize}}</td>
+                                                <td>{{packageNumber}}</td>
+                                                <td>{{comment}}</td>
+                                            </tr>
+                                            {{/items}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/invoices}}
+            </div>
+        </div>
+    </div>
+    <!-- Modal send-->
+    <div class="modal fade" id="modal_newinvoice_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加发货单</h4>
+                </div>
+                <div class="modal-body" id="makenewsendcontainer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

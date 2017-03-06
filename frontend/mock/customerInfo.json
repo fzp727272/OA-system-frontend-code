@@ -1,0 +1,27 @@
+{
+    "customerId": 1,
+    "customerName": "大天才果冻厂",
+    "availableProducts": [
+        {
+            "productId": 1,
+            "productName": "1104",
+            "productUnit": "KG",
+            "productPackageSize": 6,
+            "productUnitPrice": 15
+        },
+        {
+            "productId": 2,
+            "productName": "1105",
+            "productUnit": "KG",
+            "productPackageSize": 7,
+            "productUnitPrice": 10
+        },
+        {
+            "productId": 3,
+            "productName": "1106",
+            "productUnit": "KG",
+            "productPackageSize": 15,
+            "productUnitPrice": 12
+        }
+    ]
+}

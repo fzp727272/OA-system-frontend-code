@@ -1,0 +1,50 @@
+{
+    "loadingId": "LD1",
+    "loadingDestination": "浙江方向",
+    "loadingSendDate": "2017-09-01",
+    "loadingDriver": "张老板",
+    "invoices": [
+        {
+            "invoiceId": "I123",
+            "invoiceCustomer": "大天才果冻厂",
+            "invoiceCreatedDate": "2017-09-01",
+            "items": [
+                {
+                    "productName": "产品A",
+                    "productUnit": "KG",
+                    "productPackageSize": 13,
+                    "productPackageNumber": 10,
+                    "comment": "小桥流水"
+                },
+                {
+                    "productName": "产品B",
+                    "productUnit": "KG",
+                    "productPackageSize": 13,
+                    "productPackageNumber": 10,
+                    "comment": "小桥流水"
+                }
+            ]
+        },
+        {
+            "invoiceId": "I456",
+            "invoiceCustomer": "大天才石油厂",
+            "invoiceCreatedDate": "2017-09-01",
+            "items": [
+                {
+                    "productName": "产品A",
+                    "productUnit": "KG",
+                    "productPackageSize": 13,
+                    "productPackageNumber": 10,
+                    "comment": "小桥流水"
+                },
+                {
+                    "productName": "产品B",
+                    "productUnit": "KG",
+                    "productPackageSize": 13,
+                    "productPackageNumber": 10,
+                    "comment": "小桥流水"
+                }
+            ]
+        }
+    ]
+}

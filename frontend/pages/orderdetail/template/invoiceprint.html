@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <style scoped>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
+        
+        {{#titleTop}}
+        #title-top {
+            position: absolute;
+            top: {{top}}cm;
+            left: {{left}}cm;
+            width: {{width}}cm;
+            height: {{height}}cm;
+            font-size: {{fontSize}}cm;
+            text-align: center;
+        }
+        {{/titleTop}}
+        
+        {{#titleLeft}}
+        #title-left {
+            position: absolute;
+            top: {{top}}cm;
+            left: {{left}}cm;
+            width: {{width}cm;
+            height: {{height}}cm;
+            font-size: {{fontSize}}cm;
+        }
+        {{/titleLeft}}
+        
+        {{#titleRight}}
+        #title-right {
+            position: absolute;
+            top: {{top}}cm;
+            left: {{left}}cm;
+            width: {{width}}cm;
+            height: {{height}}cm;
+            font-size: {{fontSize}}cm;
+        }
+        {{/titleRight}}
+        
+        {{#table}}
+        .table {
+            position: absolute;
+            top: {{top}}cm;
+            left: {{left}}cm;
+            width: {{width}}cm;
+            height: auto;
+            font-size: {{fontSize}}cm;
+            border-collapse: collapse;
+            border: 0;
+        }
+        
+        .table td {
+            border: 0;
+            padding: 0;
+        }
+        
+        .table .table-cell {
+            width: inherit;
+            height: inherit;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-align: center;
+        }
+        
+        .table .tr-height1 {
+            height: {{tr1Height}}cm;
+        }
+        
+        .table .tr-height2 {
+            height: {{tr2Height}}cm;
+        }
+        
+        .table .tr-height3 {
+            height: {{tr3Height}}cm;
+        }
+        
+        .table .tr-height4 {
+            height: {{tr4Height}}cm;
+        }
+        
+        .table .tr-height5 {
+            height: {{tr5Height}}cm;
+        }
+        
+        .table .tr-height6 {
+            height: {{tr6Height}}cm;
+        }
+        
+        .table .tr-height7 {
+            height: {{tr7Height}}cm;
+        }
+        
+        .table .tr-height8 {
+            height: {{tr8Height}}cm;
+        }
+        
+        .table #productname {
+            width: {{productNameWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .productname {
+            width: {{productNameWidth}}cm;
+            height: inherit;
+        }
+        
+        .table #unit {
+            width: {{productUnitWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .unit {
+            width: {{productUnitWidth}}cm;
+            height: inherit;
+        }
+        
+        .table #sum {
+            width: {{productNumberWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .sum {
+            width: {{productNumberWidth}}cm;
+            height: inherit;
+        }
+        
+        .table #packagesize {
+            width: {{packageSizeWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .packagesize {
+            width: {{packageSizeWidth}}cm;
+            height: inherit;
+        }
+        
+        .table #packagesum {
+            width: {{packageNumberWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .packagesum {
+            width: {{packageNumberWidth}}cm;
+            height: inherit;
+        }
+        
+        .table #price {
+            width: {{productUnitPriceWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .price {
+            width: {{productUnitPriceWidth}}cm;
+            height: inherit;
+        }
+        
+        .table #money {
+            width: {{totalWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .money {
+            width: {{totalWidth}}cm;
+            height: inherit;
+        }
+        
+        .table #remarks {
+            width: {{commentWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .remarks {
+            width: {{commentWidth}}cm;
+            height: inherit;
+        }
+        
+        .table .to-sum-cell {
+            text-align: center;
+        }
+        {{/table}}
+    </style>
+    {{#data}}
+    <div id="title-top">{{titleTop}}</div>
+    <div id="title-left">{{customerName}}</div>
+    <div id="title-right">{{dateCreated}}</div>
+    <table class="table">
+        <thead>
+            <tr class="tr-height1">
+                <th id="productname">
+                    <!--产品名称或型号-->
+                </th>
+                <th id="unit">
+                    <!--单位-->
+                </th>
+                <th id="sum">
+                    <!--数量-->
+                </th>
+                <th id="packagesize">
+                    <!--包装规格-->
+                </th>
+                <th id="packagesum">
+                    <!---->
+                </th>
+                <th id="price">
+                    <!--单价-->
+                </th>
+                <th id="money">
+                    <!--金额-->
+                </th>
+                <th id="remarks">
+                    <!--备注-->
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#items}}
+            <tr class="tr-height{{idx}}">
+                <td class="productname">
+                    <div class="table-cell">{{productName}}</div>
+                </td>
+                <td class="unit">
+                    <div class="table-cell">{{productUnit}}</div>
+                </td>
+                <td class="sum">
+                    <div class="table-cell">{{productNumber}}</div>
+                </td>
+                <td class="packagesize">
+                    <div class="table-cell">{{productPackageSize}}</div>
+                </td>
+                <td class="packagesum">
+                    <div class="table-cell">{{productPackageNumber}}</div>
+                </td>
+                <td class="price">
+                    <div class="table-cell">{{productUnitPrice}}</div>
+                </td>
+                <td class="money">
+                    <div class="table-cell">{{productTotal}}</div>
+                </td>
+                <td class="remarks">
+                    <div class="table-cell">{{productComment}}</div>
+                </td>
+            </tr>
+            {{/items}}
+            <tr class="tr-height8">
+                <td class="to-sum">
+                    <div class="to-sum-cell">合计</div>
+                </td>
+                <td>
+                    <div class="to-sum-cell">合计</div>
+                </td>
+                <td>
+                    <div class="to-sum-cell">合计</div>
+                </td>
+                <td colspan="2">
+                    <div class="to-sum-cell">合计</div>
+                </td>
+                <td colspan="2">
+                    <div class="to-sum-cell">合计</div>
+                </td>
+                <td>
+                    <div class="to-sum-cell">合计</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {{/data}}
+</body>
+
+</html>

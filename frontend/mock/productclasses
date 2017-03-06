@@ -1,0 +1,14 @@
+{
+    "success": true,
+    "timestamp": 1482751164543,
+    "content": [
+        {
+            "id": 1,
+            "name": "环保漆"
+        },
+        {
+            "id": 2,
+            "name": "快干树脂"
+        }
+    ]
+}

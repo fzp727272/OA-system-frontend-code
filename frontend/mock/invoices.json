@@ -1,0 +1,54 @@
+{
+    "invoices": [
+        {
+            "invoiceId": "L1",
+            "orderId": "OL1",
+            "invoiceCreatedDate": "2019-05-03",
+            "items": [
+                {
+                    "productId": "1",
+                    "productName": "产品A",
+                    "productUnit": "KG",
+                    "productPackageSize": 5,
+                    "productPackageNumber": 2,
+                    "productUnitPrice": 15,
+                    "comment": ""
+                },
+                {
+                    "productId": "2",
+                    "productName": "产品B",
+                    "productUnit": "KG",
+                    "productPackageSize": 10,
+                    "productPackageNumber": 4,
+                    "productUnitPrice": 9,
+                    "comment": ""
+                }
+            ]
+        },
+        {
+            "invoiceId": "L2",
+            "orderId": "OL1",
+            "invoiceCreatedDate": "2019-05-04",
+            "items": [
+                {
+                    "productId": "1",
+                    "productName": "产品A",
+                    "productUnit": "KG",
+                    "productPackageSize": 5,
+                    "productPackageNumber": 2,
+                    "productUnitPrice": 15,
+                    "comment": ""
+                },
+                {
+                    "productId": "2",
+                    "productName": "产品B",
+                    "productUnit": "KG",
+                    "productPackageSize": 10,
+                    "productPackageNumber": 4,
+                    "productUnitPrice": 9,
+                    "comment": ""
+                }
+            ]
+        }
+    ]
+}
